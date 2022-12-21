@@ -1,0 +1,10 @@
+#!/bin/bash
+
+docker run \
+  --rm \
+  --name postgres \
+  -v rebase-labs-data:/var/lib/postgresql/data \
+  --network newone \
+  -e POSTGRES_HOST_AUTH_METHOD=trust \
+  postgres \
+  
