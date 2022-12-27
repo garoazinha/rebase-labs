@@ -7,4 +7,4 @@ gem "rack"
 gem "sinatra"
 gem "puma"
 gem "rspec"
-
+gem 'rack-test'

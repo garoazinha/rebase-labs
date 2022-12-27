@@ -1,21 +1,20 @@
 require 'sinatra'
 require 'rack/handler/puma'
 require 'csv'
-require_relative 'import_csv'
+require_relative 'exam_query'
 
 
 get '/tests' do
-  nc = CSVtoSQL.new
-  e = nc.conn.exec('SELECT * FROM exams;')
-  e.map {|i| i.to_json }
+  
+  query = ExamQuery.new
+  all_exams = query.find_all
+  query.conn.close
+  content_type :json
+  all_exams.to_a.to_json
+
 end
 
 get '/hello' do
   'Hello world!'
 end
 
-Rack::Handler::Puma.run(
-  Sinatra::Application,
-  Port: 3000,
-  Host: '0.0.0.0'
-)

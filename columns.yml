@@ -1,0 +1,17 @@
+columns:
+  cpf: cpf
+  nome paciente: patient_name
+  email paciente: patient_email
+  data nascimento paciente: patient_birth_date
+  endereço/rua paciente: patient_address
+  cidade paciente: patient_city
+  estado patiente: patient_state
+  crm médico: doctor_crm
+  crm médico estado: doctor_crm_state
+  nome médico: doctor_name
+  email médico: doctor_email
+  token resultado exame: exam_result_token
+  data exame: exam_date
+  tipo exame: exam_type
+  limites tipo exame: limits_exam_type
+  resultado tipo exame: result_exam_type
