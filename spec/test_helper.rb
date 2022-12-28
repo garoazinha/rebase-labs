@@ -4,6 +4,7 @@ require_relative '../server'
 require 'json'
 
 RSpec.configure do |config|
+  ENV['APP_ENV'] = 'test'
   config.include Rack::Test::Methods
   config.around(:each) do |test|
     db = ExamQuery.new

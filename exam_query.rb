@@ -43,7 +43,7 @@ class ExamQuery
 
     columns = rows.shift
 
-    rows.map do |row|
+    rows.first(100).map do |row|
       x = row.each_with_object({}).with_index do |(cell, acc), idx|
         data = YAML.safe_load_file('columns.yml')['columns']
         column = columns[idx]
