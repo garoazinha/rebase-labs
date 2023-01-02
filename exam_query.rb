@@ -21,6 +21,10 @@ class ExamQuery
     @conn.exec('SELECT * FROM exams')
   end
 
+  def find_some(offset:, limit:)
+    @conn.exec_params('SELECT * FROM exams OFFSET $1 LIMIT $2;', [offset, limit])
+  end
+
   def truncate_table
     @conn.exec('TRUNCATE exams RESTART IDENTITY;')
   end
@@ -43,7 +47,7 @@ class ExamQuery
 
     columns = rows.shift
 
-    rows.first(100).map do |row|
+    rows.map do |row|
       x = row.each_with_object({}).with_index do |(cell, acc), idx|
         data = YAML.safe_load_file('columns.yml')['columns']
         column = columns[idx]

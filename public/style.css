@@ -1,0 +1,89 @@
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('fonts/OpenSans-Regular.ttf') format(truetype);
+  font-style: normal;
+  font-weight: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+  background-color: black;
+  font-family: 'Open Sans';
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item {
+  background-color: azure;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 15px;
+
+}
+
+table {
+  border-collapse: collapse;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: lightgray 0px 0px 10px 10px;
+  
+}
+
+thead {
+  background-color: black;
+  color: azure;
+  
+}
+
+th {
+  padding: 10px;
+  font-size: 10pt;
+}
+
+tr {
+  display: table-row;
+
+}
+
+tbody tr:nth-child(even) {
+  background-color: azure;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(247, 234, 234, 0.863);
+}
+
+
+
+td {
+  padding: 10px;
+  font-size: 10pt;
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+li {
+  display: inline;
+  float:  left;
+  margin: 2px;
+
+}

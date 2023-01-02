@@ -26,7 +26,6 @@ RSpec.describe 'Exams' do
     ExamQuery.new.insert_params(exam)
 
     get '/tests'
-    
 
     expect(last_response).to be_ok
     data = JSON.parse(last_response.body)
@@ -35,5 +34,13 @@ RSpec.describe 'Exams' do
     expect(data[0]['patient_email']).to eq("gerald.crona@ebert-quigley.com")
     expect(data.length).to eq 1
     expect(data[0].keys.length).to eq 17
+  end
+
+  it 'retorna erro' do 
+    allow(PG).to receive(:connect).and_raise(PG::ConnectionBad)
+
+    get '/tests'
+
+    expect(last_response.status).to eq 500
   end
 end
