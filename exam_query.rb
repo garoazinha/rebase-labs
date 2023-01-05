@@ -21,10 +21,6 @@ class ExamQuery
     @conn.exec('SELECT * FROM exams')
   end
 
-  def find_some(offset:, limit:)
-    @conn.exec_params('SELECT * FROM exams OFFSET $1 LIMIT $2;', [offset, limit])
-  end
-
   def truncate_table
     @conn.exec('TRUNCATE exams RESTART IDENTITY;')
   end
@@ -40,6 +36,26 @@ class ExamQuery
               hash['patient_city'], hash['patient_state'], hash['doctor_crm'], hash['doctor_crm_state'],
               hash['doctor_name'], hash['doctor_email'], hash['exam_result_token'], hash['exam_date'],
               hash['exam_type'], hash['limits_exam_type'], hash['result_exam_type']] )
+  end
+  
+  def create_exam_table
+    @conn.exec('CREATE TABLE exams (id SERIAL, 
+    cpf VARCHAR,
+    patient_name VARCHAR,
+    patient_email VARCHAR,
+    patient_birth_date DATE,
+    patient_address TEXT,
+    patient_city TEXT,
+    patient_state VARCHAR,
+    doctor_crm VARCHAR,
+    doctor_crm_state VARCHAR(2),
+    doctor_name VARCHAR,
+    doctor_email VARCHAR,
+    exam_result_token VARCHAR,
+    exam_date DATE,
+    exam_type TEXT,
+    limits_exam_type VARCHAR,
+    result_exam_type INTEGER);')
   end
 
   def CSVtoSQL

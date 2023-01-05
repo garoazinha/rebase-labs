@@ -29,61 +29,80 @@ body {
   width: 90%;
   display: flex;
   justify-content: space-around;
-  padding-bottom: 15px;
+  padding: 20px;
 
 }
 
-table {
+.exam-table {
   border-collapse: collapse;
   border-radius: 7px;
   overflow: hidden;
-  box-shadow: lightgray 0px 0px 10px 10px;
-  
+  box-shadow: lightgray 0px 0px 10px 0px;
 }
 
-thead {
+.exam-table thead {
   background-color: black;
   color: azure;
   
 }
 
-th {
-  padding: 10px;
+.exam-table th {
+  padding: 20px;
   font-size: 10pt;
 }
 
-tr {
+.exam-table tr {
   display: table-row;
 
 }
 
-tbody tr:nth-child(even) {
-  background-color: azure;
+.exam-table tbody tr:nth-child(even) {
+  background-color: lightgrey;
 }
 
-tbody tr:nth-child(odd) {
-  background-color: rgba(247, 234, 234, 0.863);
+.exam-table tbody tr:nth-child(odd) {
+  background-color: white;
 }
 
 
 
-td {
-  padding: 10px;
+.exam-table td {
+  padding: 20px;
   font-size: 10pt;
 }
 
 
 
-ul {
+.nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.nav li a.active {
+  background-color: blueviolet;
+  color: white;
+}
+.nav li a:hover {
+  background-color: black;
+  text-decoration: none;
+  color:white;
+}
+
+
+
+.nav li a {
+  
+  display: inline-block;
+  width: 40px;
+  padding:10px;
+  color: grey;
+  text-decoration: none;
+  text-align: center;
   
 }
 
-li {
-  display: inline;
-  float:  left;
-  margin: 2px;
-
-}

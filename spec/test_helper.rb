@@ -2,8 +2,12 @@
 require 'rack/test'
 require_relative '../server'
 require 'json'
+require 'capybara'
+require 'capybara/rspec'
+require 'selenium-webdriver'
 
 RSpec.configure do |config|
+  
   ENV['APP_ENV'] = 'test'
   config.include Rack::Test::Methods
   config.around(:each) do |test|
@@ -16,4 +20,8 @@ RSpec.configure do |config|
   def app
     Sinatra::Application
   end
+  Capybara.app = Sinatra::Application
+  
+  
+
 end

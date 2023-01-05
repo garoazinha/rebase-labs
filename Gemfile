@@ -8,3 +8,6 @@ gem "sinatra"
 gem "puma"
 gem "rspec"
 gem 'rack-test'
+gem 'capybara'
+gem 'selenium-webdriver'
+
