@@ -1,0 +1,22 @@
+services:
+  app:
+    image: ruby
+    working_dir: /app
+    volumes:
+      - .:/app
+      - rubygems:/usr/local/bundle
+      - gemconfig:/root/.local/share/gem
+    ports:
+      - "3000:3000"
+
+  postgres:
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    image: postgres
+    volumes:
+     - rebase-labs-data:/var/lib/postgresql/data
+
+volumes:
+  rubygems:
+  gemconfig:
+  rebase-labs-data:

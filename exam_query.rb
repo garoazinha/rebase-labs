@@ -11,10 +11,8 @@ class ExamQuery
   end
 
   def self.database_name
-
     data = YAML.safe_load_file('database.yml')
     data[ENV['APP_ENV']||='development']['database_name']
-
   end
 
   def find_all

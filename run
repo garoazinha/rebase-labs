@@ -5,7 +5,7 @@ docker run -it \
   --name rebase-labs \
   -w /app \
   -v $(pwd):/app \
-  -v rebase_gems:/usr/local/bundle/ \
+  -v rebase-gems:/usr/local/bundle/ \
   -p 3000:3000 \
   --network rebase-labs \
   ruby \

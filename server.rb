@@ -16,7 +16,7 @@ options '*' do
 end
 
 get '/tests' do
-  content_type :json  
+  content_type :json
   query = ExamQuery.new
   all_exams = query.find_all
   query.conn.close

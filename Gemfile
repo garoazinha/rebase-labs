@@ -10,4 +10,5 @@ gem "rspec"
 gem 'rack-test'
 gem 'capybara'
 gem 'selenium-webdriver'
+gem 'sidekiq'
 

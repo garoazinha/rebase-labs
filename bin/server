@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker compose run \
+  --rm \
+  --name server \
+  --service-ports \
+  app \
+  bash -c 'ruby server.rb'
