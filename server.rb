@@ -3,8 +3,10 @@ require 'rack/handler/puma'
 require 'csv'
 require_relative 'exam_query'
 
+set :port, 3000
+set :bind, '0.0.0.0'
+
 before do
-    
   headers 'Access-Control-Allow-Origin' => '*', 
            'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
 end
@@ -26,7 +28,6 @@ end
 get '/exams' do
   content_type 'text/html'
   send_file 'public/index.html'
-
 end
 
 

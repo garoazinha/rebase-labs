@@ -14,7 +14,6 @@
 }
 
 body {
-  background-color: black;
   font-family: 'Open Sans';
 }
 
@@ -26,11 +25,17 @@ body {
 
 .item {
   background-color: azure;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 20px;
+  padding: 0;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
 
+.content {
+  width: 80%;
+  margin-bottom: 10px;
 }
 
 .exam-table {
@@ -104,5 +109,14 @@ body {
   text-decoration: none;
   text-align: center;
   
+}
+
+.footer {
+  width: 100%;
+  background-color: black;
+  height: 200px;
+  padding: 0;
+  box-sizing: initial;
+  position: relative;
 }
 
