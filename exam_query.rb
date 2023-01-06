@@ -1,6 +1,7 @@
 require 'pg'
 require 'csv'
 require 'yaml'
+require 'json'
 
 class ExamQuery
   attr_accessor :conn
@@ -57,18 +58,13 @@ class ExamQuery
   end
 
   def import_to_exams_table(data:)
+    rows = JSON.parse(data)
 
-    rows = CSV.parse(data, col_sep: ';', row_sep: '\n')
-
-    columns = YAML.safe_load_file('columns.yml')['columns'].keys
+    maps = YAML.safe_load_file('columns.yml')['columns']
 
     rows.each do |row|
-      x = row.each_with_object({}).with_index do |(cell, acc), idx|
-        data = YAML.safe_load_file('columns.yml')['columns']
-        column = columns[idx]
-        acc[data[column]] = cell
-      end
-      insert_params(x)
+      row.keys.each { |k| row[maps[k]] = row.delete(k) if maps[k] }
+      insert_params(row)
     end
 
   end

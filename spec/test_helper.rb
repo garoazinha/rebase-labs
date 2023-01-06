@@ -7,7 +7,6 @@ require 'capybara/rspec'
 require 'selenium-webdriver'
 require 'sidekiq/testing'
 
-
 RSpec.configure do |config|
   
   ENV['APP_ENV'] = 'test'

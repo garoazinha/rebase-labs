@@ -7,7 +7,6 @@ RSpec.describe 'Exams page', type: :feature do
     visit '/exams'
 
     expect(page).to have_content('Exames')
-    
   end
 end
   
