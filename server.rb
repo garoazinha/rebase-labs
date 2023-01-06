@@ -2,6 +2,7 @@ require 'sinatra'
 require 'rack/handler/puma'
 require 'csv'
 require_relative 'exam_query'
+require_relative 'jobs/my_jobs'
 
 set :port, 3000
 set :bind, '0.0.0.0'
@@ -33,5 +34,11 @@ end
 
 get '/hello' do
   'Hello world!'
+end
+
+post '/import' do
+  csv = request.body.read.to_s
+  Import.perform_async(csv)
+  "Ok"
 end
 

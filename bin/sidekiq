@@ -1,0 +1,7 @@
+#!/bin/bash
+
+docker compose run \
+  --rm \
+  --name sidekiq \
+  app \
+  bash -c 'sidekiq -r ./jobs/my_jobs.rb'

@@ -5,6 +5,8 @@ require 'json'
 require 'capybara'
 require 'capybara/rspec'
 require 'selenium-webdriver'
+require 'sidekiq/testing'
+
 
 RSpec.configure do |config|
   
@@ -14,7 +16,7 @@ RSpec.configure do |config|
     db = ExamQuery.new
     db.truncate_table
     test.run
-    db.truncate_table
+
   end
 
   def app

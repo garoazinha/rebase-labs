@@ -1,7 +1,7 @@
-
 require 'pg'
 require 'csv'
 require 'yaml'
+
 class ExamQuery
   attr_accessor :conn
   
@@ -54,6 +54,23 @@ class ExamQuery
     exam_type TEXT,
     limits_exam_type VARCHAR,
     result_exam_type INTEGER);')
+  end
+
+  def import_to_exams_table(data:)
+
+    rows = CSV.parse(data, col_sep: ';', row_sep: '\n')
+
+    columns = YAML.safe_load_file('columns.yml')['columns'].keys
+
+    rows.each do |row|
+      x = row.each_with_object({}).with_index do |(cell, acc), idx|
+        data = YAML.safe_load_file('columns.yml')['columns']
+        column = columns[idx]
+        acc[data[column]] = cell
+      end
+      insert_params(x)
+    end
+
   end
 
   def CSVtoSQL

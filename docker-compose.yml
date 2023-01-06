@@ -8,6 +8,8 @@ services:
       - gemconfig:/root/.local/share/gem
     ports:
       - "3000:3000"
+    environment:
+      REDIS_URL: redis://redis:6379/0
 
   postgres:
     environment:
@@ -15,6 +17,10 @@ services:
     image: postgres
     volumes:
      - rebase-labs-data:/var/lib/postgresql/data
+  
+  redis:
+    image: redis
+    
 
 volumes:
   rubygems:

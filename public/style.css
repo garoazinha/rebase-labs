@@ -30,12 +30,16 @@ body {
   justify-content: space-around;
   padding: 0;
   flex-wrap: wrap;
-  margin: 10px 0;
+  margin-bottom: 30px;
+}
+
+.item:last-child {
+  margin: 0;
 }
 
 .content {
   width: 80%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .exam-table {
