@@ -37,7 +37,7 @@ get '/hello' do
 end
 
 post '/import' do
-  csv = CSV.new(request.body.read, row_sep: '\n', col_sep: ';', headers: true).to_a
+  csv = CSV.new(request.body.read, col_sep: ';', headers: true).to_a
   csv.map! { |r| r.to_hash }
   Import.perform_async(csv.to_json)
   "Ok"
