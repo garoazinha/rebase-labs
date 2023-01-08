@@ -43,3 +43,12 @@ post '/import' do
   "Ok"
 end
 
+post '/importfile' do
+  file = params['file']['tempfile']
+
+  csv = CSV.open(file, col_sep: ';', headers: true).to_a
+  csv.map! { |r| r.to_hash }
+  Import.perform_async(csv.to_json)
+  "OK!"
+end
+

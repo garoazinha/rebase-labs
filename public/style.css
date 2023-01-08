@@ -27,7 +27,7 @@ body {
   background-color: azure;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0;
   flex-wrap: wrap;
   margin-bottom: 30px;
@@ -37,10 +37,38 @@ body {
   margin: 0;
 }
 
+.item:first-child {
+  margin-top: 30px;
+}
+
 .content {
   width: 80%;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+
+  align-items: center;
 }
+
+.form {
+  background-color: beige;
+}
+
+.form button {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.form input {
+  width: 70%;
+}
+
+.form span {
+  display: none;
+}
+
 
 .exam-table {
   border-collapse: collapse;

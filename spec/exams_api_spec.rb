@@ -67,4 +67,19 @@ RSpec.describe 'Exams API' do
       expect(Import.jobs.length).to eq 1
     end
   end
+
+  context 'POST /IMPORTFILE' do
+    it 'com sucesso' do
+      file = Rack::Test::UploadedFile.new('./spec/support/sample.csv', 'text/csv')
+
+      Sidekiq::Testing.inline! do
+        post "/importfile", file:
+      end
+
+      array = ExamQuery.new.find_all.to_a
+      expect(array[0]['exam_type']).to eq('hemácias')
+      expect(array[0]['exam_result_token']).to eq 'ABCD21'
+      expect(array.length).to eq 13
+    end
+  end
 end
