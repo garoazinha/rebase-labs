@@ -11,7 +11,7 @@ class ExamQuery
   end
 
   def self.database_name
-    data = YAML.safe_load_file('database.yml')
+    data = YAML.safe_load_file('./config/database.yml')
     data[ENV['APP_ENV']||='development']['database_name']
   end
 
@@ -63,7 +63,7 @@ class ExamQuery
   def import_to_exams_table(data:)
     rows = JSON.parse(data)
 
-    maps = YAML.safe_load_file('columns.yml')['columns']
+    maps = YAML.safe_load_file('./config/columns.yml')['columns']
 
     rows.each do |row|
       row.keys.each { |k| row[maps[k]] = row.delete(k) if maps[k] }
@@ -78,7 +78,7 @@ class ExamQuery
 
     rows.map do |row|
       x = row.each_with_object({}).with_index do |(cell, acc), idx|
-        data = YAML.safe_load_file('columns.yml')['columns']
+        data = YAML.safe_load_file('./config/columns.yml')['columns']
         column = columns[idx]
         acc[data[column]] = cell
       end

@@ -10,8 +10,8 @@ let data;
 fetch(url)
   .then((response) => { if (!response.ok) {
     c = document.querySelector('.container');
-    c.style.backgroundcolor = 'red';
-    c.innerHTML = `${response.status}`;
+    document.body.style.backgroundColor = 'lightgrey';
+    c.innerHTML = `<h1>${response.status}</h1>`;
     throw Error(response.statusText);
     
   }

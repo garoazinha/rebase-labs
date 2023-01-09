@@ -3,4 +3,4 @@
 docker compose run \
   --rm \
   app \
-  bash -c 'bundle install && ruby create_database.rb'
+  bash -c 'bundle install && ruby ./config/create_database.rb'

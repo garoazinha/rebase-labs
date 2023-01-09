@@ -24,7 +24,7 @@ body {
 }
 
 .item {
-  background-color: azure;
+  background-color: white;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -47,7 +47,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 600px;
 }
 
 .form {

@@ -3,6 +3,7 @@ const fragment = new DocumentFragment();
 const url = `http://localhost:3000/tests`;
 const tbody = document.getElementById('tbody');
 const parentlist = document.getElementById('parent-list');
+const bottomList  = document.getElementById('bottom-list');
 let currPage = 1;
 let data;
 let pageSize = 100;
@@ -17,29 +18,45 @@ fetch(url)
       x.href = "#";
       x.innerHTML = `${i+1}`;
       x.id = `page-${i+1}`;
-      
+  
       li.appendChild(x);
+      dup = li.cloneNode(deep = true);
+      dup.firstChild.id = `bottom-page-${i+1}`;
       parentlist.appendChild(li);
+      bottomList.appendChild(dup);
+
     }
     display_data();
     document.getElementById('page-1').classList.add('active');
+    document.getElementById('bottom-page-1').classList.add('active');
   })
   .catch(function(error) {
     console.log(error);
   });
-
-document.getElementById("parent-list").addEventListener("click", function(e) {
-  if(e.target && e.target.nodeName == "A") {
-    tbody.innerHTML = '';
-    currPage = parseInt(e.target.id.replace("page-", ""));
-    button = e.target;
-    document.querySelectorAll("#parent-list li a").forEach((btn) => {
-      btn.classList.remove("active");
-    });
-    button.classList.add("active")
-    display_data();
-  }
+let elements = document.querySelectorAll('.nav');
+console.log(Array.from(elements));
+elements.forEach(function(elem) {
+  console.log(elem);
+  elem.addEventListener("click", function(e) {
+    if(e.target && e.target.nodeName == "A") {
+      tbody.innerHTML = '';
+      page = parseInt(e.target.id.match(/\d+/)[0]);
+      currPage = parseInt(page);
+      topButton = document.getElementById(`page-${page}`);
+      bottomButton = document.getElementById(`bottom-${topButton.id}`)
+      active_button(topButton, bottomButton);
+      display_data();
+    }
+  })
 });
+
+function active_button(button, bottomButton) {
+  document.querySelectorAll(".nav li a").forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  button.classList.add("active");
+  bottomButton.classList.add("active");
+}
 
 function display_data() {
   data.filter(function(row, index) {
