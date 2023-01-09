@@ -31,6 +31,7 @@ body {
   padding: 0;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  align-items: center;
 }
 
 .item:last-child {
@@ -50,7 +51,12 @@ body {
 }
 
 .form {
-  background-color: beige;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
 }
 
 .form button {
@@ -58,10 +64,22 @@ body {
   padding: 10px;
   text-decoration: none;
   text-align: center;
+  border-radius: 3px;
+  border: thin solid grey;
+}
+
+.form h3  {
+  margin-right: 10px;
 }
 
 .form input {
   width: 70%;
+}
+
+.form input::file-selector-button {
+  padding: 10px;
+  border: thin solid grey;
+  border-radius: 3px;
 }
 
 .form span {
@@ -99,6 +117,17 @@ body {
   background-color: white;
 }
 
+.exam-table td a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.exam-table td a:hover {
+  color: darkmagenta;
+  text-decoration: none;
+  text-align: center;
+}
+
 
 
 .exam-table td {
@@ -122,23 +151,20 @@ body {
   background-color: blueviolet;
   color: white;
 }
+
 .nav li a:hover {
   background-color: black;
   text-decoration: none;
   color:white;
 }
 
-
-
 .nav li a {
-  
   display: inline-block;
   width: 40px;
   padding:10px;
   color: grey;
   text-decoration: none;
   text-align: center;
-  
 }
 
 .footer {
@@ -148,5 +174,33 @@ body {
   padding: 0;
   box-sizing: initial;
   position: relative;
+}
+
+.search {
+  display: none;
+
+} 
+
+.search a {
+  text-decoration: none;
+  text-align: center;
+}
+
+.search a:hover {
+  color: lightgrey;
+  text-decoration: none;
+  text-align: center;
+}
+
+#search {
+  padding: 10px;
+  border: thin solid grey;
+  border-radius: 3px;
+}
+
+#tokensearch {
+  padding: 10px;
+  border: thin solid grey;
+  border-radius: 3px;
 }
 

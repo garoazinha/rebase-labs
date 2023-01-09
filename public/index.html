@@ -14,13 +14,19 @@
 <div class="container">
   <div class="item">
     <div class="header"><h1>Exames</h1></div>
+    <div class="header">
+      <label for="tokensearch" style="display:none;">Busca</label>
+      <input type="text" id="tokensearch" name="tokensearch" placeholder="Token">
+      <button id="search">Go!</button>
+    </div>
 
   </div> 
-
+  <div class="search"></div>
   <div class="item"> 
     <div class="content">
-      <h3>Upload de CSV</h3>
+      
       <div class="form">
+      <h3>Upload</h3>
       <form method="post" action="http://localhost:3000/importfile" enctype="multipart/form-data">
         <span><label for="file">Arquivo</label></span>
         <input type="file"
@@ -69,5 +75,6 @@
   
 </body>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="search.js"></script>
 
 </html>

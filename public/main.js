@@ -33,10 +33,11 @@ fetch(url)
   .catch(function(error) {
     console.log(error);
   });
+
 let elements = document.querySelectorAll('.nav');
-console.log(Array.from(elements));
+
 elements.forEach(function(elem) {
-  console.log(elem);
+  
   elem.addEventListener("click", function(e) {
     if(e.target && e.target.nodeName == "A") {
       tbody.innerHTML = '';
@@ -65,11 +66,17 @@ function display_data() {
     if(index >= start && index < end) return true;
   }).forEach(function(exam, index) {
   const tr = document.createElement('tr');
-  
+
+  link = `http://localhost:3000/exams/${exam.exam_result_token}`
+
   tr.insertCell(0).textContent = `${exam.patient_name}`;
   tr.insertCell(1).textContent = `${exam.patient_email}`;
   tr.insertCell(2).textContent = `${exam.exam_date}`;
-  tr.insertCell(3).textContent = `${exam.exam_result_token}`;
+  linkTd = tr.insertCell(3);
+  a = document.createElement('a');
+  a.href = link;
+  a.textContent = `${exam.exam_result_token}`;
+  linkTd.appendChild(a);
   tr.insertCell(4).textContent = `${exam.exam_type}`;
   tr.insertCell(5).textContent = `${exam.limits_exam_type}`;
   tr.insertCell(6).textContent = `${exam.result_exam_type}`;

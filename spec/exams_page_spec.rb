@@ -9,6 +9,7 @@ RSpec.describe 'Exams page', type: :feature do
     expect(page).to have_content('Exames')
     expect(page).to have_button('Upload')
     expect(page).to have_field('Arquivo')
+    expect(page).to have_field('Busca')
   end
 
   it 'Usuário faz upload' do

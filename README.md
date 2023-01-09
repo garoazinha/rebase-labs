@@ -161,6 +161,12 @@ Ok!
 }
 ```
 
+## A implementar 
+
+- [ ] Busca por token
+- [ ] Header e css
+- [ ] Tratamento de erros
+
 
 
 
