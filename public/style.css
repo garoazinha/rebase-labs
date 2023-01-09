@@ -46,8 +46,8 @@ body {
   margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
-
   align-items: center;
+  min-height: 600px;
 }
 
 .form {
@@ -68,7 +68,6 @@ body {
 .form span {
   display: none;
 }
-
 
 .exam-table {
   border-collapse: collapse;

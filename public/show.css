@@ -1,0 +1,51 @@
+.exam-data {
+  margin: 0 auto;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.exam-data dl {
+  display: flex;
+  flex-flow: row wrap;
+  overflow: hidden;
+  box-shadow: lightgray 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+
+.exam-data dt {
+  flex-basis: 20%;
+  padding: 15px;
+  background: black;
+  text-align: right;
+  color: #fff;
+}
+
+.exam-data dd {
+  flex-basis: 70%;
+  margin: 0;
+  padding: 15px;
+
+}
+
+.exam-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exam-results h3 {
+  text-align: center;
+  
+}
+
+.exam-results table {
+  width: 100%;
+  
+}
+
+
+

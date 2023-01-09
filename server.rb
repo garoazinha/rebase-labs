@@ -23,12 +23,27 @@ get '/tests' do
   query.conn.close
 
   all_exams.to_a.to_json
+end
 
+get '/tests/:token' do
+  content_type :json
+  query = ExamQuery.new
+  exam = query.find_by_token(token: params['token'])
+  if exam == []
+    return 404
+  end
+  query.render_json(data: exam).to_json
 end
 
 get '/exams' do
-  content_type 'text/html'
   send_file 'public/index.html'
+end
+
+get '/exams/:token' do
+  query = ExamQuery.new
+  exams = query.find_by_token(token: params['token'])
+  template = File.read('public/show.html')
+  template.gsub!('{{token}}', params['token'])
 end
 
 
@@ -51,4 +66,5 @@ post '/importfile' do
   Import.perform_async(csv.to_json)
   "OK!"
 end
+
 

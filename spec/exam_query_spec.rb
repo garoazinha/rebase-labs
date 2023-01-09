@@ -19,4 +19,15 @@ describe 'ExamQuery', type: :model do
     expect(array[1]['exam_type']).to eq('eletrólitos')
   end
 
+  it 'procura dados por token' do
+    csv = CSV.open('./spec/support/sample.csv', col_sep: ';', headers: true).to_a
+    csv.map! { |r| r.to_hash }
+    query = ExamQuery.new
+    query.import_to_exams_table(data: csv.to_json)
+
+    data = query.find_by_token(token: 'ABCD21')
+
+    expect(data.length).to eq 13
+  end
+
 end

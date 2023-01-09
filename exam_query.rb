@@ -5,7 +5,6 @@ require 'json'
 
 class ExamQuery
   attr_accessor :conn
-  
 
   def initialize
     @conn = PG.connect(host: 'postgres', user: 'postgres', password: 'postgres', dbname: ExamQuery.database_name)
@@ -18,6 +17,10 @@ class ExamQuery
 
   def find_all
     @conn.exec('SELECT * FROM exams')
+  end
+
+  def find_by_token(token:)
+    @conn.exec("SELECT * FROM exams WHERE exam_result_token = '#{token}';").to_a
   end
 
   def truncate_table
@@ -66,7 +69,6 @@ class ExamQuery
       row.keys.each { |k| row[maps[k]] = row.delete(k) if maps[k] }
       insert_params(row)
     end
-
   end
 
   def CSVtoSQL
@@ -82,6 +84,17 @@ class ExamQuery
       end
       insert_params(x)
     end
+  end
+
+  def render_json(data:)
+    first_row = data[0]
+    hash = first_row.slice('cpf', 'patient_name', 'patient_email', 'patient_birth_date', 'exam_result_token', 'exam_date')
+    hash['doctor'] = first_row.slice('doctor_crm', 'doctor_crm_state', 'doctor_name')
+    hash['tests'] = data.each_with_object([]) do |item, array|
+       array << item.slice('exam_type', 'limits_exam_type', 'result_exam_type')
+    end
+    hash
+    
   end
 end
 

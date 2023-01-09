@@ -82,4 +82,26 @@ RSpec.describe 'Exams API' do
       expect(array.length).to eq 13
     end
   end
+
+  context 'GET /tests/:token' do
+    it 'com sucesso' do
+      csv = CSV.open('./spec/support/sample.csv', col_sep: ';', headers: true).to_a
+      csv.map! { |r| r.to_hash }
+      query = ExamQuery.new
+      query.import_to_exams_table(data: csv.to_json)
+
+      get '/tests/ABCD21'
+
+      expect(last_response.status).to eq 200
+      data = JSON.parse(last_response.body)
+      expect(data['patient_name']).to eq('Mariana Souza')
+      expect(data['doctor'].length).to eq 3
+    end
+
+    it 'e exames nao existem' do
+      get '/tests/ABCD21'
+
+      expect(last_response.status).to eq 404
+    end
+  end
 end
