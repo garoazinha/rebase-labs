@@ -29,7 +29,7 @@ get '/tests/:token' do
   content_type :json
   query = ExamQuery.new
   exam = query.find_by_token(token: params['token'])
-  if exam == []
+  if exam.empty?
     return 404
   end
   query.render_json(data: exam).to_json
@@ -66,5 +66,3 @@ post '/importfile' do
   Import.perform_async(csv.to_json)
   "OK!"
 end
-
-

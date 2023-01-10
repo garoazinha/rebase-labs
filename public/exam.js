@@ -18,7 +18,6 @@ fetch(url)
   return response; })
   .then((response) => response.json() )
   .then((data) => {
-    console.log(data);
 
     newPoint('CPF', data.cpf, dl);
     newPoint('Nome', data.patient_name, dl);

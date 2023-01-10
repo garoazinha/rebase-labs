@@ -64,7 +64,25 @@ cpf;nome paciente;email paciente;data nascimento paciente;endereço/rua paciente
 033.568.987-99;Mariana Souza;mari@email.com;1997-12-15;333 Rua Azul;Nova Esperança;Paraná;B000BJ20J5;PR;Maria Amélia Junco;maria@wisozk.biz;ABCD21;2022-12-05;leucócitos;9-61;89
 033.568.987-99;Mariana Souza;mari@email.com;1997-12-15;333 Rua Azul;Nova Esperança;Paraná;B000BJ20J5;PR;Maria Amélia Junco;maria@wisozk.biz;ABCD21;2022-12-05;plaquetas;11-93;97
 ```
-**Resposta**
+**Respostas**
+
+200
+
+```
+Ok!
+```
+
+### POST /importfile
+
+**Parâmetros**
+
+- Request Headers
+  > Content-Type: Multipart/form-data
+
+- Request Body
+  > file: file.csv
+
+**Respostas**
 
 200
 
@@ -160,6 +178,14 @@ Ok!
   ]
 }
 ```
+
+## Status Codes
+
+| Code | Descrição |
+| ----------- | ----------- |
+| 200 | OK |
+| 404 | NOT FOUND |
+| 500 | INTERNAL SERVER ERROR |
 
 ## A implementar 
 

@@ -94,7 +94,7 @@ class ExamQuery
        array << item.slice('exam_type', 'limits_exam_type', 'result_exam_type')
     end
     hash
-    
   end
+
 end
 

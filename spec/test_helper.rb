@@ -21,6 +21,7 @@ RSpec.configure do |config|
   def app
     Sinatra::Application
   end
+  
   Capybara.app = Sinatra::Application
   
   
