@@ -66,7 +66,7 @@ class ExamQuery
     maps = YAML.safe_load_file('./config/columns.yml')['columns']
 
     rows.each do |row|
-      row.keys.each { |k| row[maps[k]] = row.delete(k) if maps[k] }
+      row.transform_keys!(maps)
       insert_params(row)
     end
   end
