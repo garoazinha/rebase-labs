@@ -17,6 +17,12 @@ body {
   font-family: 'Open Sans';
 }
 
+body a {
+  text-decoration: none;
+  text-align: center;
+}
+
+
 .container {
   display: flex;
   justify-content: center;
@@ -39,8 +45,10 @@ body {
 }
 
 .item:first-child {
-  margin-top: 30px;
+  background-color: black;
 }
+
+
 
 .content {
   width: 80%;
@@ -48,49 +56,62 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.form {
-  background-color: white;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-
+.content h2 {
+  font-weight: 700;
+  width: 100%;
+  padding: 0px 0px 15px 0px;
+  
 }
+
+
+
 
 .form button {
-  display: inline-block;
+  background-color: white;
   padding: 10px;
   text-decoration: none;
   text-align: center;
   border-radius: 3px;
   border: thin solid grey;
+
 }
 
-.form h3  {
-  margin-right: 10px;
+.form button:hover {
+  background-color: black;
+  color:white;
 }
 
-.form input {
-  width: 70%;
-}
+
+
 
 .form input::file-selector-button {
+  background-color: white;
   padding: 10px;
   border: thin solid grey;
   border-radius: 3px;
 }
 
-.form span {
-  display: none;
+.form input::file-selector-button:hover {
+  background-color: black;
+  color:white;
 }
+
+
+
 
 .exam-table {
   border-collapse: collapse;
   border-radius: 7px;
   overflow: hidden;
   box-shadow: lightgray 0px 0px 10px 0px;
+
+}
+
+.form label {
+  display:none;
 }
 
 .exam-table thead {
@@ -144,6 +165,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10px;
 
 }
 
@@ -178,29 +200,62 @@ body {
 
 .search {
   display: none;
+  position: absolute;
+  width: 350px;
+  background-color: white;
+  padding: 10px;
+  border: thin solid grey;
+  border-radius: 3px;
+  font-size: small;
 
 } 
 
 .search a {
-  text-decoration: none;
-  text-align: center;
+  color: black;
 }
 
 .search a:hover {
   color: lightgrey;
-  text-decoration: none;
-  text-align: center;
 }
 
-#search {
+
+.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  background-color: black;
+}
+
+.header h1 a{
+  color: white
+
+}
+
+.header h1 a:hover {
+  color:blueviolet;
+  
+}
+
+.header input {
+  padding: 10px;
+  border: thin solid grey;
+  border-radius: 3px;
+  width: 350px;
+}
+
+.header button {
   padding: 10px;
   border: thin solid grey;
   border-radius: 3px;
 }
 
-#tokensearch {
-  padding: 10px;
-  border: thin solid grey;
-  border-radius: 3px;
+.header button:hover {
+  background-color: black;
+  color: white;
 }
 
+.search-wrapper {
+  position: relative;
+}

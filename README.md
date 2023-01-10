@@ -163,8 +163,9 @@ Ok!
 
 ## A implementar 
 
-- [ ] Busca por token
-- [ ] Header e css
+- [x] Busca por token
+- [x] Headers
+- [ ] Melhorias no css
 - [ ] Tratamento de erros
 
 

@@ -4,18 +4,25 @@ const searchUrl = `http://localhost:3000/tests/`;
 const searchResults = document.querySelector('.search');
 
 searchButton.addEventListener('click', function(e){
-  
+  e.preventDefault();
   value = searchInput.value;
+
+  if (value == '') {
+    searchResults.style.display = 'none';
+    
+    return;
+  }
   fetchExams(value).then(exams => {
+    searchResults.innerHTML = '';
     a = document.createElement('a');
     a.href = `http://localhost:3000/exams/${value}`;
     a.textContent = `Exames de token ${value}`;
     searchResults.appendChild(a);
-    searchResults.style.display = 'block'
+    searchResults.style.display = 'block';
   })
   .catch(e => {
     console.log(e.message);
-    searchResults.innerHTML = 'NOOO'
+    searchResults.innerHTML = 'Não há registros com esse token'
     searchResults.style.display = 'block';
   })
 
@@ -33,3 +40,7 @@ async function fetchExams(token) {
   return exams;
 
 }
+
+document.body.addEventListener('click', function(e) {
+  searchResults.style.display = 'none';
+});

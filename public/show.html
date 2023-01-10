@@ -13,6 +13,20 @@
 <body>
   <div class="container">
     <div class="item">
+      <div class="header">
+        <h1><a href="http://localhost:3000/exams">Exames</a></h1>
+        <form>
+          <div class="search-wrapper">
+            <label for="tokensearch" style="display:none;">Busca</label>
+            <input type="text" id="tokensearch" name="tokensearch" placeholder="Token">
+            <div class="search"></div>
+            <button id="search">Go!</button>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    <div class="item">
       <h1 id="token">{{token}}</h1>
     </div>
     <div class="item">
@@ -50,4 +64,5 @@
   
 </body>
 <script type="text/javascript" src="../exam.js"></script>
+<script type="text/javascript" src="../search.js"></script>
 </html>

@@ -15,7 +15,7 @@ fetch(url)
     for (let i = 0; i < pages; i++) {
       const li = document.createElement('li');
       x = document.createElement("a");
-      x.href = "#";
+      x.href = "#/";
       x.innerHTML = `${i+1}`;
       x.id = `page-${i+1}`;
   
@@ -39,7 +39,9 @@ let elements = document.querySelectorAll('.nav');
 elements.forEach(function(elem) {
   
   elem.addEventListener("click", function(e) {
+    e.preventDefault();
     if(e.target && e.target.nodeName == "A") {
+      
       tbody.innerHTML = '';
       page = parseInt(e.target.id.match(/\d+/)[0]);
       currPage = parseInt(page);
